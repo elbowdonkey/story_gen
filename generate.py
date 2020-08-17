@@ -292,6 +292,16 @@ class CmdMenu(Cmd):
         global story
         story = f'{story} {text}'
 
+    def do_settings(self,args):
+        setting_names = [
+          "full_sentences", "cycles", "cycle_counter", "base_length", "timestamps",
+          "temperature", "top_k", "top_p", "min_length", "do_sample", "num_return_sequences",
+          "num_beams", "no_repeat_ngram_size", "early_stopping"
+        ]
+
+        for setting in setting_names:
+            print('{}: {}'.format(setting, globals()[setting]))
+
     def do_view(self, args):
         setting = args
         try:
